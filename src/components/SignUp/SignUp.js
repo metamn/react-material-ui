@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Meta, { MetaPropTypes, MetaDefaultProps } from "../Meta";
+import Copyright from "../Copyright";
 
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -24,22 +25,17 @@ const propTypes = {
   /**
    * The page meta info
    */
-  pageMeta: PropTypes.shape(MetaPropTypes),
-  /**
-   * The site meta info
-   */
-  siteMeta: PropTypes.shape(MetaPropTypes)
+  meta: PropTypes.shape(MetaPropTypes)
 };
 
 /**
  * Defines the default props
  */
 const defaultProps = {
-  pageMeta: {
+  meta: {
     title: "Sign Up",
     description: "Sign up"
-  },
-  siteMeta: MetaDefaultProps
+  }
 };
 
 /**
@@ -74,14 +70,13 @@ const useStyles = makeStyles(theme => ({
  * Displays the component
  */
 const SignUp = props => {
-  const { pageMeta, siteMeta } = props;
-  const { title: pageTitle } = pageMeta;
-  const { title: siteTitle, url: siteUrl } = siteMeta;
+  const { meta } = props;
+  const { title } = meta;
   const classes = useStyles();
 
   return (
     <>
-      <Meta {...pageMeta} />
+      <Meta {...meta} />
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
@@ -89,7 +84,7 @@ const SignUp = props => {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            {pageTitle}
+            {title}
           </Typography>
           <form className={classes.form} noValidate>
             <Grid container spacing={2}>
@@ -167,13 +162,7 @@ const SignUp = props => {
           </form>
         </div>
         <Box mt={5}>
-          <Typography variant="body2" color="textSecondary" align="center">
-            {"Copyright © "}
-            <Link color="inherit" href={siteUrl}>
-              {siteTitle}
-            </Link>{" "}
-            {new Date().getFullYear()}
-          </Typography>
+          <Copyright />
         </Box>
       </Container>
     </>
