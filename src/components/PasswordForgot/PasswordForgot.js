@@ -4,14 +4,12 @@ import { Link as RouterLink } from "react-router-dom";
 
 import Meta, { MetaPropTypes, MetaDefaultProps } from "../Meta";
 import Copyright from "../Copyright";
-import PasswordForgot from "../PasswordForgot";
 
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
@@ -35,8 +33,8 @@ const propTypes = {
  */
 const defaultProps = {
   meta: {
-    title: "Sign In",
-    description: "Sign in"
+    title: "Password forgot",
+    description: "Password forgot"
   }
 };
 
@@ -71,7 +69,7 @@ const useStyles = makeStyles(theme => ({
 /**
  * Displays the component
  */
-const SignIn = props => {
+const PasswordForgot = props => {
   const { meta } = props;
   const { title } = meta;
   const classes = useStyles();
@@ -100,21 +98,6 @@ const SignIn = props => {
               autoComplete="email"
               autoFocus
             />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
             <Button
               type="submit"
               fullWidth
@@ -122,21 +105,17 @@ const SignIn = props => {
               color="primary"
               className={classes.submit}
             >
-              Sign In
+              Get a password reset link
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link
-                  component={RouterLink}
-                  to="/password-forgot/"
-                  variant="body2"
-                >
-                  Forgot password?
+                <Link component={RouterLink} to="/sign-up/" variant="body2">
+                  {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
               <Grid item>
-                <Link component={RouterLink} to="/sign-up/" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                <Link component={RouterLink} to="/sign-in/" variant="body2">
+                  {"Sign In"}
                 </Link>
               </Grid>
             </Grid>
@@ -150,8 +129,11 @@ const SignIn = props => {
   );
 };
 
-SignIn.propTypes = propTypes;
-SignIn.defaultProps = defaultProps;
+PasswordForgot.propTypes = propTypes;
+PasswordForgot.defaultProps = defaultProps;
 
-export default SignIn;
-export { propTypes as SignInPropTypes, defaultProps as SignInDefaultProps };
+export default PasswordForgot;
+export {
+  propTypes as PasswordForgotPropTypes,
+  defaultProps as PasswordForgotDefaultProps
+};
