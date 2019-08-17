@@ -26,7 +26,7 @@ const propTypes = {
    */
   pageMeta: PropTypes.shape(MetaPropTypes),
   /**
-   * The site url
+   * The site meta info
    */
   siteMeta: PropTypes.shape(MetaPropTypes)
 };
@@ -75,8 +75,8 @@ const useStyles = makeStyles(theme => ({
  */
 const SignUp = props => {
   const { pageMeta, siteMeta } = props;
-  const { pageTitle } = pageMeta;
-  const { title, url } = siteMeta;
+  const { title: pageTitle } = pageMeta;
+  const { title: siteTitle, url: siteUrl } = siteMeta;
   const classes = useStyles();
 
   return (
@@ -169,8 +169,8 @@ const SignUp = props => {
         <Box mt={5}>
           <Typography variant="body2" color="textSecondary" align="center">
             {"Copyright © "}
-            <Link color="inherit" href={url}>
-              {title}
+            <Link color="inherit" href={siteUrl}>
+              {siteTitle}
             </Link>{" "}
             {new Date().getFullYear()}
           </Typography>
