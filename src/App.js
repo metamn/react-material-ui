@@ -1,7 +1,14 @@
 import React from "react";
+import "typeface-roboto";
 
-const App = () => {
-  return "App";
-};
+import Button from "@material-ui/core/Button";
+
+function App() {
+  return (
+    <Button variant="contained" color="primary">
+      Hello World
+    </Button>
+  );
+}
 
 export default App;
