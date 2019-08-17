@@ -5,22 +5,36 @@ import { Helmet } from "react-helmet";
 /**
  * Defines the prop types
  */
-const propTypes = {};
+const propTypes = {
+  /**
+   * The page title
+   */
+  title: PropTypes.string,
+  /**
+   * The page description
+   */
+  description: PropTypes.string
+};
 
 /**
  * Defines the default props
  */
-const defaultProps = {};
+const defaultProps = {
+  title: "React Material UI",
+  description: "Playing with React Material UI"
+};
 
 /**
  * Displays the component
  */
 const Meta = props => {
+  const { title, description } = props;
+
   return (
     <Helmet>
-      <title>React Material UI</title>
-      <meta name="title" content="React Material UI" />
-      <meta name="description" content="React Material UI" />
+      <title>{title}</title>
+      <meta name="title" content={title} />
+      <meta name="description" content={description} />
       <meta
         name="viewport"
         content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
@@ -33,4 +47,4 @@ Meta.propTypes = propTypes;
 Meta.defaultProps = defaultProps;
 
 export default Meta;
-export { propTypes, defaultProps };
+export { propTypes as MetaPropTypes, defaultProps as MetaDefaultProps };

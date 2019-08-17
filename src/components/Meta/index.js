@@ -1,2 +1,1 @@
-export { default } from "./Meta";
-export { propTypes, defaultProps } from "./Meta";
+export { default, MetaPropTypes, MetaDefaultProps } from "./Meta";
