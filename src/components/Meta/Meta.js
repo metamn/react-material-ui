@@ -11,6 +11,10 @@ const propTypes = {
    */
   title: PropTypes.string,
   /**
+   * The page url
+   */
+  url: PropTypes.string,
+  /**
    * The page description
    */
   description: PropTypes.string
@@ -21,20 +25,22 @@ const propTypes = {
  */
 const defaultProps = {
   title: "React Material UI",
-  description: "Playing with React Material UI"
+  url: "http://localhost:3000/",
+  description: "Playing with the React Material UI"
 };
 
 /**
  * Displays the component
  */
 const Meta = props => {
-  const { title, description } = props;
+  const { title, url, description } = props;
 
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="title" content={title} />
       <meta name="description" content={description} />
+      <meta name="url" content={url} />
       <meta
         name="viewport"
         content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
