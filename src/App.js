@@ -4,13 +4,14 @@ import "typeface-roboto";
 
 import Meta from "./components/Meta";
 import SignUp from "./components/SignUp";
+import SignIn from "./components/SignIn";
 
 function App() {
   return (
     <>
       <Meta />
       <CssBaseline />
-      <SignUp />
+      <SignIn />
     </>
   );
 }
