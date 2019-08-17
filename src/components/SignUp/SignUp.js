@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link as RouterLink } from "react-router-dom";
 
 import Meta, { MetaPropTypes, MetaDefaultProps } from "../Meta";
 import Copyright from "../Copyright";
@@ -154,7 +155,7 @@ const SignUp = props => {
             </Button>
             <Grid container justify="center">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link component={RouterLink} to="/sign-in/" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>
