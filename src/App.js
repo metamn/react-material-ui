@@ -1,13 +1,17 @@
 import React from "react";
 import "typeface-roboto";
 
+import Meta from "./components/Meta";
 import Button from "@material-ui/core/Button";
 
 function App() {
   return (
-    <Button variant="contained" color="primary">
-      Hello World
-    </Button>
+    <>
+      <Meta />
+      <Button variant="contained" color="primary">
+        Hello World
+      </Button>
+    </>
   );
 }
 
