@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import Meta, { MetaPropTypes, MetaDefaultProps } from "../Meta";
 import Copyright from "../Copyright";
+import { mainMenuItems, secondaryMenuItems } from "../MenuItems";
 
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
@@ -21,7 +22,8 @@ import Paper from "@material-ui/core/Paper";
 import Link from "@material-ui/core/Link";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import NotificationsIcon from "@material-ui/icons/Notifications";
+import Avatar from "@material-ui/core/Avatar";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 /**
  * Defines the prop types
@@ -86,6 +88,10 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1
   },
+  avatar: {
+    margin: theme.spacing(0),
+    backgroundColor: theme.palette.primary.main
+  },
   drawerPaper: {
     position: "relative",
     whiteSpace: "nowrap",
@@ -134,7 +140,7 @@ const Dashboard = props => {
   const { meta } = props;
   const { title } = meta;
 
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -180,7 +186,9 @@ const Dashboard = props => {
             </Typography>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
+                <Avatar className={classes.avatar}>
+                  <AccountCircleIcon />
+                </Avatar>
               </Badge>
             </IconButton>
           </Toolbar>
@@ -198,25 +206,22 @@ const Dashboard = props => {
             </IconButton>
           </div>
           <Divider />
-          List1
+          <List>{mainMenuItems}</List>
           <Divider />
-          List2
+          <List>{secondaryMenuItems}</List>
         </Drawer>
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
           <Container maxWidth="lg" className={classes.container}>
             <Grid container spacing={3}>
-              {/* Chart */}
               <Grid item xs={12} md={8} lg={9}>
-                <Paper className={fixedHeightPaper}>Chart</Paper>
+                <Paper className={fixedHeightPaper}>Projects</Paper>
               </Grid>
-              {/* Recent Deposits */}
               <Grid item xs={12} md={4} lg={3}>
-                <Paper className={fixedHeightPaper}>Deposits</Paper>
+                <Paper className={fixedHeightPaper}>Notifications</Paper>
               </Grid>
-              {/* Recent Orders */}
               <Grid item xs={12}>
-                <Paper className={classes.paper}>Orders</Paper>
+                <Paper className={classes.paper}>Marketplace</Paper>
               </Grid>
             </Grid>
           </Container>
