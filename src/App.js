@@ -6,6 +6,7 @@ import Meta from "./components/Meta";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
 import PasswordForgot from "./components/PasswordForgot";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/sign-up" component={SignUp} />
           <Route path="/sign-in" component={SignIn} />
           <Route path="/password-forgot" component={PasswordForgot} />
+          <Route path="/dashboard" component={Dashboard} />
         </Switch>
       </Router>
     </>
